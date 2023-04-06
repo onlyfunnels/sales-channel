@@ -13,7 +13,10 @@
   },
   "dependencies": {
     "@shopify/app": "3.45.0",
-    "@shopify/cli": "3.45.0"
+    "@shopify/cli": "3.45.0",
+    "dot-env": "0.0.1",
+    "dotenv": "^16.0.3",
+    "express-async-handler": "^1.2.0"
   },
   "author": "apple"
 }
