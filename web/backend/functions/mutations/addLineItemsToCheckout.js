@@ -1,13 +1,12 @@
 import { postToShopify } from "../utils/postToShopify.js"
 
-const singleCheckoutHandler = async (query) => {
+const addLineItemsHandler = async (query) => {
   try {
     const shopifyResponse = await postToShopify({
       query: `
-        query getCheckoutById($id: ID!) {
-          node(id: $id) {
-            id
-            ... on Checkout {
+        mutation checkoutLineItemsAdd($checkoutId: ID!, $lineItems: [CheckoutLineItemInput!]!) {
+          checkoutLineItemsAdd(checkoutId: $checkoutId, lineItems: $lineItems) {
+            checkout {
               id
               ready
               currencyCode
@@ -41,13 +40,21 @@ const singleCheckoutHandler = async (query) => {
                 }
               }
             }
+            checkoutUserErrors {
+              code
+              field
+              message
+            }
           }
         }
       `,
       variables: {
-        id: query.id
+        checkoutId: query.checkoutId,
+        lineItems: query.lineItems
       }
     })
+
+    console.log("Mutation Response", shopifyResponse)
 
     return {
       statusCode: 200,
@@ -58,4 +65,4 @@ const singleCheckoutHandler = async (query) => {
   }
 }
 
-export default singleCheckoutHandler;
+export default addLineItemsHandler;
