@@ -3,6 +3,7 @@ import { join } from "path";
 import { readFileSync } from "fs";
 import express from "express";
 import serveStatic from "serve-static";
+import cors from "cors"
 
 import shopify from "./shopify.js";
 import productCreator from "./product-creator.js";
@@ -16,12 +17,14 @@ process.env.NODE_ENV !== "production" ? console.log(dotenv.config({path: '../.en
 
 const PORT = parseInt(process.env.BACKEND_PORT || process.env.PORT, 10);
 
+
 const STATIC_PATH =
   process.env.NODE_ENV === "production"
     ? `${process.cwd()}/frontend/dist`
     : `${process.cwd()}/frontend/`;
 
 const app = express();
+app.use(cors())
 
 // Set up Shopify authentication and webhook handling
 // app.get(shopify.config.auth.path, shopify.auth.begin());
