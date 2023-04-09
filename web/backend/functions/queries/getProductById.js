@@ -1,9 +1,7 @@
 import { postToShopify } from "../utils/postToShopify.js"
 
-const productHandler = async (query) => {
+const productHandler = async (query, storefront_endpoint, storefront_api_key) => {
   const id = query.id;
-  console.log("*********Type of ID", typeof(id))
-  console.log("*********Value of ID", id)
   try {
     const shopifyResponse = await postToShopify({
       query: `
@@ -21,7 +19,7 @@ const productHandler = async (query) => {
       variables: {
         id: id
       }
-    })
+    }, storefront_endpoint, storefront_api_key)
 
     return {
       statusCode: 200,

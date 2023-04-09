@@ -1,6 +1,6 @@
 import { postToShopify } from "../utils/postToShopify.js"
 
-const productVariantHandler = async () => {
+const productVariantHandler = async (storefront_endpoint, storefront_api_key) => {
   try {
     const shopifyResponse = await postToShopify({
       query: `
@@ -21,7 +21,7 @@ const productVariantHandler = async () => {
           }
         }
       `
-    })
+    }, storefront_endpoint, storefront_api_key)
 
     return {
       statusCode: 200,

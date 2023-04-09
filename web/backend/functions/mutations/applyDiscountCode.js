@@ -1,6 +1,6 @@
 import { postToShopify } from "../utils/postToShopify.js"
 
-const applyDiscountCodeHandler = async (query) => {
+const applyDiscountCodeHandler = async (query, storefront_endpoint, storefront_api_key) => {
   try {
     const shopifyResponse = await postToShopify({
       query: `
@@ -29,7 +29,7 @@ const applyDiscountCodeHandler = async (query) => {
         checkoutId: query.checkoutId,
         discountCode: query.discountCode
       }
-    })
+    }, storefront_endpoint, storefront_api_key)
 
     console.log("Mutation Response", shopifyResponse)
 

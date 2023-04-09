@@ -1,6 +1,6 @@
 import { postToShopify } from "../utils/postToShopify.js"
 
-const singleCheckoutHandler = async (query) => {
+const singleCheckoutHandler = async (query, storefront_endpoint, storefront_api_key) => {
   try {
     const shopifyResponse = await postToShopify({
       query: `
@@ -47,7 +47,7 @@ const singleCheckoutHandler = async (query) => {
       variables: {
         id: query.id
       }
-    })
+    }, storefront_endpoint, storefront_api_key)
 
     return {
       statusCode: 200,

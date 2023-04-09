@@ -2,7 +2,7 @@ import { postToShopify } from "../utils/postToShopify.js"
 // import { GraphqlQueryError } from "@shopify/shopify-api";
 // import shopify from "../../../shopify.js";
 
-const collectionHandler = async (query) => {
+const collectionHandler = async (query, storefront_endpoint, storefront_api_key) => {
   const first = parseInt(query.first);
   const cursor = query.cursor;
   try {
@@ -29,7 +29,7 @@ const collectionHandler = async (query) => {
         numProducts: first,
         cursor: cursor
       }
-    })
+    }, storefront_endpoint, storefront_api_key)
 
     console.log("response", shopifyResponse)
 
