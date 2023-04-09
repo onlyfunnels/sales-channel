@@ -38,21 +38,3 @@ const createCheckout = async (query) => {
 }
 
 export default createCheckout;
-// mutation createCheckout($lineItems: [CheckoutCreateInput!]!) {
-//   checkoutCreate(input: {
-//     lineItems: $lineItems
-//   }) {
-//     checkout {
-//       id
-//       webUrl
-//       lineItems(first: 5) {
-//         edges {
-//           node {
-//             title
-//             quantity
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
