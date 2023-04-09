@@ -11,7 +11,8 @@ import productRouter from "../web/backend/routes/productRoutes.js";
 import checkoutRouter from "../web/backend/routes/checkoutRoutes.js";
 import collectionRouter from "../web/backend/routes/collectionRoutes.js";
 import dotenv from "dotenv"
-console.log(dotenv.config({path: '../.env'}))
+
+process.env.NODE_ENV !== "production" ? console.log(dotenv.config({path: '../.env'})) : ''
 
 const PORT = parseInt(process.env.BACKEND_PORT || process.env.PORT, 10);
 
