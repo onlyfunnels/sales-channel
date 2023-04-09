@@ -1,6 +1,6 @@
 import { postToShopify } from "../utils/postToShopify.js"
 
-const updateLineItemsHandler = async (query) => {
+const updateLineItemsHandler = async (query, storefront_endpoint, storefront_api_key) => {
   try {
     const shopifyResponse = await postToShopify({
       query: `
@@ -52,7 +52,7 @@ const updateLineItemsHandler = async (query) => {
         checkoutId: query.checkoutId,
         lineItems: query.lineItems
       }
-    })
+    }, storefront_endpoint, storefront_api_key)
 
     console.log("Mutation Response", shopifyResponse)
 

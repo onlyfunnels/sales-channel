@@ -1,14 +1,13 @@
 import fetch from "node-fetch"
 
-export const postToShopify = async ({ query, variables }) => {
+export const postToShopify = async ({ query, variables }, storefront_endpoint, storefront_api_key) => {
   try {
-    console.log("********", process.env.SHOPIFY_API_ENDPOINT)
-    const result = await fetch(process.env.SHOPIFY_API_ENDPOINT, {
+    const result = await fetch(storefront_endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Storefront-Access-Token':
-          process.env.SHOPIFY_STOREFRONT_API_TOKEN,
+        storefront_api_key,
       },
       body: JSON.stringify({ query, variables }),
     }).then((res) => res.json())

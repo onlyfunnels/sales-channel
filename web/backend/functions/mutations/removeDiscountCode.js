@@ -1,6 +1,6 @@
 import { postToShopify } from "../utils/postToShopify.js"
 
-const removeDiscountCodeHandler = async (query) => {
+const removeDiscountCodeHandler = async (query, storefront_endpoint, storefront_api_key) => {
   try {
     const shopifyResponse = await postToShopify({
       query: `
@@ -29,7 +29,7 @@ const removeDiscountCodeHandler = async (query) => {
       variables: {
         checkoutId: query.checkoutId
       }
-    })
+    }, storefront_endpoint, storefront_api_key)
 
     console.log("Mutation Response", shopifyResponse)
 
