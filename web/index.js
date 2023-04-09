@@ -9,6 +9,7 @@ import productCreator from "./product-creator.js";
 import GDPRWebhookHandlers from "./gdpr.js";
 import productRouter from "../web/backend/routes/productRoutes.js";
 import checkoutRouter from "../web/backend/routes/checkoutRoutes.js";
+import collectionRouter from "../web/backend/routes/collectionRoutes.js";
 import dotenv from "dotenv"
 console.log(dotenv.config({path: '../.env'}))
 
@@ -73,5 +74,6 @@ app.get("/api/products/create", async (_req, res) => {
 
 app.use('/api/products', productRouter)
 app.use('/api/checkouts', checkoutRouter)
+app.use('/api/collections', collectionRouter)
 
 app.listen(PORT);
