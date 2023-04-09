@@ -10,7 +10,7 @@
     "info": "shopify app info",
     "generate": "shopify app generate",
     "deploy": "shopify app deploy",
-    "serve": "cross-env NODE_ENV=production node web/index.js"
+    "serve": "NODE_ENV=production node web/index.js"
   },
   "dependencies": {
     "@shopify/app": "3.45.0",
