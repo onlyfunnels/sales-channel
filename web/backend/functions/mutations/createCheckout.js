@@ -1,13 +1,11 @@
 import { postToShopify } from "../utils/postToShopify.js"
 
-const createCheckout = async () => {
+const createCheckout = async (query) => {
   try {
     const shopifyResponse = await postToShopify({
       query: `
-          mutation {
-            checkoutCreate(input: {
-              lineItems: [{ variantId: "gid://shopify/ProductVariant/44604959392021", quantity: 1 }]
-            }) {
+          mutation createCheckout($input: CheckoutCreateInput!) {
+            checkoutCreate(input: $input) {
               checkout {
                 id
                 webUrl
@@ -22,7 +20,10 @@ const createCheckout = async () => {
               }
             }
           }
-      `
+      `,
+      variables: {
+        input: query.input
+      }
     })
 
     console.log("Mutation Response", shopifyResponse)
