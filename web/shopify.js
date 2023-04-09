@@ -21,6 +21,7 @@ const shopify = shopifyApp({
     apiVersion: LATEST_API_VERSION,
     apiKey: "08d18bc56afda9934774c89e98a3fdf9",
     apiSecretKey: "07fd7734afdaaee251a08b1b60f6de24",
+    hostName: "ec2-16-171-56-73.eu-north-1.compute.amazonaws.com",
     scopes: "write_products",
     restResources,
     billing: undefined, // or replace with billingConfig above to enable example billing
