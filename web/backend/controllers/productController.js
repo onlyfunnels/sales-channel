@@ -14,6 +14,6 @@ export const getProductById = asyncHandler(async (req, res) => {
 })
 
 export const getProductVariants = asyncHandler(async (req, res) => {
-  const variants = await productVariantHandler(req.headers.shopify_api_endpoint, req.headers.shopify_storefront_api_token)
+  const variants = await productVariantHandler(req.query, req.headers.shopify_api_endpoint, req.headers.shopify_storefront_api_token)
   res.status(200).json(JSON.parse(variants.body))
 })
