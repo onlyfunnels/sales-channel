@@ -9,11 +9,46 @@ const createCheckout = async (query, storefront_endpoint, storefront_api_key) =>
               checkout {
                 id
                 webUrl
-                lineItems(first: 5) {
+                lineItemsSubtotalPrice {
+                  amount
+                  currencyCode
+                }
+                subtotalPrice {
+                  amount
+                  currencyCode
+                }
+                taxesIncluded
+                totalTax {
+                  amount
+                  currencyCode
+                }
+                totalPrice {
+                  amount
+                  currencyCode
+                }
+                lineItems(first: 20) {
                   edges {
                     node {
+                      id
                       title
                       quantity
+
+                      variant {
+                        id
+                        title
+
+                        product {
+                          id
+                        }
+                        image {
+                          altText
+                          url
+                        }
+                        compareAtPrice {
+                          amount
+                          currencyCode
+                        }
+                      }
                     }
                   }
                 }

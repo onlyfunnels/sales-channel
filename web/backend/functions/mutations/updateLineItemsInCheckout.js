@@ -10,6 +10,7 @@ const updateLineItemsHandler = async (query, storefront_endpoint, storefront_api
               id
               ready
               currencyCode
+              webUrl
               subtotalPrice {
                 amount
                 currencyCode
@@ -31,7 +32,19 @@ const updateLineItemsHandler = async (query, storefront_endpoint, storefront_api
                     quantity
                     variant {
                       id
+                      title
+                      
+                      image {
+                        altText
+                        url
+                      }
+
                       price {
+                        amount
+                        currencyCode
+                      }
+
+                      compareAtPrice {
                         amount
                         currencyCode
                       }

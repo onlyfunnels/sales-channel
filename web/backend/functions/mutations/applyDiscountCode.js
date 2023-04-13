@@ -7,6 +7,7 @@ const applyDiscountCodeHandler = async (query, storefront_endpoint, storefront_a
         mutation applyDiscountCodeToCheckout($checkoutId: ID!, $discountCode: String!) {
           checkoutDiscountCodeApplyV2(checkoutId: $checkoutId, discountCode: $discountCode) {
             checkout {
+              webUrl
               discountApplications(first: 10) {
                 edges {
                   node {
