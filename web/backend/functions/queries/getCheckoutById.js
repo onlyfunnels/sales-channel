@@ -9,6 +9,7 @@ const singleCheckoutHandler = async (query, storefront_endpoint, storefront_api_
             id
             ... on Checkout {
               id
+              webUrl
               ready
               currencyCode
               subtotalPrice {
