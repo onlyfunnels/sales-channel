@@ -24,3 +24,7 @@ https://eu-north-1.console.aws.amazon.com/ec2/home?region=eu-north-1#ConnectToIn
 ## Restart the server
 
 `pm2 restart web/index.js`
+
+## API Documentation
+
+https://tetrahex.postman.co/documentation/15878807-dd6ce36c-e123-4167-afa0-b86a0ff09f74/publish?workspace=3df12dc3-779c-4f1f-8cff-d2a33a140ec0
