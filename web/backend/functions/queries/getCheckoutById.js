@@ -72,3 +72,4 @@ const singleCheckoutHandler = async (query, storefront_endpoint, storefront_api_
 }
 
 export default singleCheckoutHandler;
+
