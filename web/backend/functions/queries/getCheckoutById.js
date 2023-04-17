@@ -33,9 +33,21 @@ const singleCheckoutHandler = async (query, storefront_endpoint, storefront_api_
                     quantity
                     variant {
                       id
+                      title
+                      product {
+                        id
+                      }
                       price {
                         amount
                         currencyCode
+                      }
+                      compareAtPrice {
+                        amount
+                        currencyCode
+                      }
+                      image {
+                        altText
+                        url
                       }
                     }
                   }

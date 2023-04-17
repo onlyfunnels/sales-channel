@@ -15,6 +15,11 @@ const collectionHandler = async (query, storefront_endpoint, storefront_api_key)
               handle
               description
               title
+              descriptionHtml
+              image {
+                altText
+                url
+              }
             }
             pageInfo {
               startCursor
