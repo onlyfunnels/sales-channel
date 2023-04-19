@@ -2,7 +2,7 @@ import axios from "axios"
 import asyncHandler from "express-async-handler"
 
 export const createAttentiveSubscriber = asyncHandler(async (req, res) => {
-  const email = "test@gmail.com"
+  const email = req.query.email
   const endpoint = "https://api.attentivemobile.com/v1/subscriptions"
     const headers = {
         "Content-Type": "application/json",
