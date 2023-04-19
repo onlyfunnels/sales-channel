@@ -11,6 +11,7 @@ import GDPRWebhookHandlers from "./gdpr.js";
 import productRouter from "../web/backend/routes/productRoutes.js";
 import checkoutRouter from "../web/backend/routes/checkoutRoutes.js";
 import collectionRouter from "../web/backend/routes/collectionRoutes.js";
+import subscriptionRouter from "../web/backend/routes/attentiveMobileRoutes.js"
 import dotenv from "dotenv"
 
 process.env.NODE_ENV !== "production" ? console.log(dotenv.config({path: '../.env'})) : ''
@@ -66,18 +67,9 @@ app.get("/api/products/create", async (_req, res) => {
   res.status(status).send({ success: status === 200, error });
 });
 
-// app.use(shopify.cspHeaders());
-// app.use(serveStatic(STATIC_PATH, { index: false }));
-
-// app.use("/*", shopify.ensureInstalledOnShop(), async (_req, res, _next) => {
-//   return res
-//     .status(200)
-//     .set("Content-Type", "text/html")
-//     .send(readFileSync(join(STATIC_PATH, "index.html")));
-// });
-
 app.use('/api/products', productRouter)
 app.use('/api/checkouts', checkoutRouter)
 app.use('/api/collections', collectionRouter)
+app.use('/api/subscriptions', subscriptionRouter)
 
 app.listen(PORT);
